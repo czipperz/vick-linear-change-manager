@@ -16,9 +16,8 @@ before_script:
   - cd czipperz/vick
   - mkdir -p plugins
   - cd plugins
-  # customize me!
-  - git clone https://github.com/czipperz/vick-plugin-base
-  - cd vick-plugin-base
+  - git clone https://github.com/czipperz/vick-linear-change-manager
+  - cd vick-linear-change-manager
   - make begin
   - cd ../..
 
