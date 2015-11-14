@@ -6,14 +6,14 @@
 namespace vick {
 namespace linear_change_manager {
 
-void contents::push_back(std::shared_ptr<change> change)
+void push_back_change(contents& contents, std::shared_ptr<change> change)
 {
-    if (changes_i == 0)
-        changes.clear();
-    else if (changes.size() > changes_i)
-        changes.erase(changes.begin() + changes_i, changes.end());
-    changes.push_back(change);
-    changes_i = changes.size();
+    if (contents.changes_i == 0)
+        contents.changes.clear();
+    else if (contents.changes.size() > contents.changes_i)
+        contents.changes.erase(contents.changes.begin() + contents.changes_i, contents.changes.end());
+    contents.changes.push_back(change);
+    contents.changes_i = contents.changes.size();
 }
 
 boost::optional<std::shared_ptr<change> > undo_change(contents& contents,

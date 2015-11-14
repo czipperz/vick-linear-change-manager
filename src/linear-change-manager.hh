@@ -4,6 +4,20 @@ namespace vick {
 namespace linear_change_manager {
 
 /*!
+ * \brief Adds the change given to the private vector, possibly
+ * deleting some changes
+ *
+ * ----------
+ * | change |
+ * | ------ |
+ * ----------
+ *
+ * \param change The string to be put at the end of the vector of
+ * changes.
+ */
+void push_back_change(contents& contents, std::shared_ptr<change> change);
+
+/*!
  * \brief Undoes the change on top of the stack, or pops off another
  * if called again
  *
