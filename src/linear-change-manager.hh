@@ -1,5 +1,8 @@
 #include "../../../src/contents.hh"
 
+namespace vick {
+namespace linear_change_manager {
+
 /*!
  * \brief Undoes the change on top of the stack, or pops off another
  * if called again
@@ -46,3 +49,6 @@ redo_change(contents&, boost::optional<int> = boost::none);
  */
 boost::optional<std::shared_ptr<change> >
 reapply_change(contents&, boost::optional<int> = 0);
+
+}
+}

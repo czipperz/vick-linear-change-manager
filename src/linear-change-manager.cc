@@ -3,6 +3,9 @@
 #include "../../../src/contents.hh"
 #include "../../../src/show_message.hh"
 
+namespace vick {
+namespace linear_change_manager {
+
 void contents::push_back(std::shared_ptr<change> change)
 {
     if (changes_i == 0)
@@ -46,4 +49,7 @@ boost::optional<std::shared_ptr<change> > reapply_change(contents& contents,
     auto x = contents.changes.back()->regenerate(contents);
     x->redo(contents);
     return x;
+}
+
+}
 }
