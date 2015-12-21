@@ -4,6 +4,14 @@ namespace vick {
 namespace linear_change_manager {
 
 /*!
+ * \file linear-change-manager.hh
+ * \brief Linearly manages the changes in the contents buffer.
+ *
+ * If a change is added while we have undone some, the undone ones are
+ * discarded.
+ */
+
+/*!
  * \brief Adds the change given to the private vector, possibly
  * deleting some changes
  *
