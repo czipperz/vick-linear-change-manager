@@ -45,9 +45,7 @@ boost::optional<std::shared_ptr<change> > reapply_change(contents& contents,
         show_message("No changes to reapply");
         return boost::none;
     }
-    auto x = contents.changes.back()->regenerate(contents);
-    x->redo(contents);
-    return x;
+    return contents.changes.back()->regenerate_and_apply(contents);
 }
 
 }
