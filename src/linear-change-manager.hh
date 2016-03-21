@@ -23,7 +23,8 @@ namespace linear_change_manager {
  * \param change The string to be put at the end of the vector of
  * changes.
  */
-void push_back_change(contents& contents, std::shared_ptr<change> change);
+void push_back_change(contents& contents,
+                      std::shared_ptr<change> change);
 
 /*!
  * \brief Undoes the change on top of the stack, or pops off another
@@ -42,7 +43,7 @@ boost::optional<std::shared_ptr<change> >
 undo_change(contents&, boost::optional<int> = boost::none);
 
 /*!
- * \brief Redoes the change on top of the stack, or climbs back on it 
+ * \brief Redoes the change on top of the stack, or climbs back on it
  * Deletes anything after current
  *
  * \code{.cpp}
@@ -71,6 +72,5 @@ redo_change(contents&, boost::optional<int> = boost::none);
  */
 boost::optional<std::shared_ptr<change> >
 reapply_change(contents&, boost::optional<int> = 0);
-
 }
 }

@@ -6,19 +6,20 @@
 namespace vick {
 namespace linear_change_manager {
 
-void push_back_change(contents& contents, std::shared_ptr<change> change)
-{
+void push_back_change(contents& contents,
+                      std::shared_ptr<change> change) {
     if (contents.changes_i == 0)
         contents.changes.clear();
     else if (contents.changes.size() > contents.changes_i)
-        contents.changes.erase(contents.changes.begin() + contents.changes_i, contents.changes.end());
+        contents.changes.erase(contents.changes.begin() +
+                                   contents.changes_i,
+                               contents.changes.end());
     contents.changes.push_back(change);
     contents.changes_i = contents.changes.size();
 }
 
-boost::optional<std::shared_ptr<change> > undo_change(contents& contents,
-                                                      boost::optional<int>)
-{
+boost::optional<std::shared_ptr<change> >
+undo_change(contents& contents, boost::optional<int>) {
     if (contents.changes.size() == 0 or contents.changes_i == 0) {
         show_message("No changes to undo");
         return boost::none;
@@ -27,10 +28,10 @@ boost::optional<std::shared_ptr<change> > undo_change(contents& contents,
     return boost::none;
 }
 
-boost::optional<std::shared_ptr<change> > redo_change(contents& contents,
-                                                      boost::optional<int>)
-{
-    if (contents.changes.size() == 0 or contents.changes_i >= contents.changes.size()) {
+boost::optional<std::shared_ptr<change> >
+redo_change(contents& contents, boost::optional<int>) {
+    if (contents.changes.size() == 0 or
+        contents.changes_i >= contents.changes.size()) {
         show_message("No changes to redo");
         return boost::none;
     }
@@ -38,15 +39,13 @@ boost::optional<std::shared_ptr<change> > redo_change(contents& contents,
     return boost::none;
 }
 
-boost::optional<std::shared_ptr<change> > reapply_change(contents& contents,
-                                                         boost::optional<int>)
-{
+boost::optional<std::shared_ptr<change> >
+reapply_change(contents& contents, boost::optional<int>) {
     if (contents.changes.size() == 0) {
         show_message("No changes to reapply");
         return boost::none;
     }
     return contents.changes.back()->regenerate_and_apply(contents);
 }
-
 }
 }
