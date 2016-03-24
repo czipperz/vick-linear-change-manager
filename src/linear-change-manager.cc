@@ -20,7 +20,7 @@ void push_back_change(contents& contents,
 
 boost::optional<std::shared_ptr<change> >
 undo_change(contents& contents, boost::optional<int>) {
-    if (contents.changes.size() == 0 or contents.changes_i == 0) {
+    if (contents.changes.empty() or contents.changes_i == 0) {
         show_message("No changes to undo");
         return boost::none;
     }
@@ -30,7 +30,7 @@ undo_change(contents& contents, boost::optional<int>) {
 
 boost::optional<std::shared_ptr<change> >
 redo_change(contents& contents, boost::optional<int>) {
-    if (contents.changes.size() == 0 or
+    if (contents.changes.empty() or
         contents.changes_i >= contents.changes.size()) {
         show_message("No changes to redo");
         return boost::none;
@@ -41,7 +41,7 @@ redo_change(contents& contents, boost::optional<int>) {
 
 boost::optional<std::shared_ptr<change> >
 reapply_change(contents& contents, boost::optional<int>) {
-    if (contents.changes.size() == 0) {
+    if (contents.changes.empty()) {
         show_message("No changes to reapply");
         return boost::none;
     }
