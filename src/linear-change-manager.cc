@@ -1,7 +1,7 @@
 #include <ncurses.h>
 
-#include "../../../src/contents.hh"
-#include "../../../src/show_message.hh"
+#include "contents.hh"
+#include "show_message.hh"
 
 namespace vick {
 namespace linear_change_manager {

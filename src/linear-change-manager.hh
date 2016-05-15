@@ -1,4 +1,4 @@
-#include "../../../src/contents.hh"
+#include "contents.hh"
 
 namespace vick {
 namespace linear_change_manager {
