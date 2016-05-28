@@ -6,6 +6,7 @@
 
 #include "contents.hh"
 #include "show_message.hh"
+#include "linear-change-manager.hh"
 
 namespace vick {
 namespace linear_change_manager {
