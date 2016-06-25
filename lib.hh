@@ -11,7 +11,7 @@ namespace vick {
 namespace linear_change_manager {
 
 /*!
- * \file linear-change-manager.hh
+ * \file vick-linear-change-manager/lib.hh
  * \brief Linearly manages the changes in the contents buffer.
  *
  * If a change is added while we have undone some, the undone ones are
