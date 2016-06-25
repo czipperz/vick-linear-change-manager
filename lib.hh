@@ -2,6 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#ifndef HEADER_GUARD_LINEAR_CHANGE_MANGER_H
+#define HEADER_GUARD_LINEAR_CHANGE_MANGER_H
+
 #include "contents.hh"
 
 namespace vick {
@@ -78,3 +81,5 @@ boost::optional<std::shared_ptr<change> >
 reapply_change(contents&, boost::optional<int> = 0);
 }
 }
+
+#endif
