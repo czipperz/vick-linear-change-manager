@@ -4,9 +4,9 @@
 
 #include <ncurses.h>
 
+#include "../lib.hh"
 #include "contents.hh"
 #include "show_message.hh"
-#include "../lib.hh"
 
 namespace vick {
 namespace linear_change_manager {
