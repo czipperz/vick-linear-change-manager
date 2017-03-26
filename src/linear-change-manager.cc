@@ -23,32 +23,32 @@ void push_back_change(contents& contents,
     contents.changes_i = contents.changes.size();
 }
 
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 undo_change(contents& contents, boost::optional<int>) {
     if (contents.changes.empty() or contents.changes_i == 0) {
         show_message("No changes to undo");
-        return boost::none;
+        return nullptr;
     }
     contents.changes[--contents.changes_i]->undo(contents);
-    return boost::none;
+    return nullptr;
 }
 
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 redo_change(contents& contents, boost::optional<int>) {
     if (contents.changes.empty() or
         contents.changes_i >= contents.changes.size()) {
         show_message("No changes to redo");
-        return boost::none;
+        return nullptr;
     }
     contents.changes[contents.changes_i++]->redo(contents);
-    return boost::none;
+    return nullptr;
 }
 
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 reapply_change(contents& contents, boost::optional<int>) {
     if (contents.changes.empty()) {
         show_message("No changes to reapply");
-        return boost::none;
+        return nullptr;
     }
     return contents.changes.back()->regenerate_and_apply(contents);
 }

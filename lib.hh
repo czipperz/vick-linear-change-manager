@@ -46,7 +46,7 @@ void push_back_change(contents& contents,
  * ----------
  * \endcode
  */
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 undo_change(contents&, boost::optional<int> = boost::none);
 
 /*!
@@ -62,7 +62,7 @@ undo_change(contents&, boost::optional<int> = boost::none);
  * ----------
  * \endcode
  */
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 redo_change(contents&, boost::optional<int> = boost::none);
 
 /*!
@@ -77,7 +77,7 @@ redo_change(contents&, boost::optional<int> = boost::none);
  * -----------------------
  * \endcode
  */
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 reapply_change(contents&, boost::optional<int> = 0);
 }
 }
